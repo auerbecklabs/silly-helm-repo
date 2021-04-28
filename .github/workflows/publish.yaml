@@ -20,4 +20,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(process.env.RELEASE)
+            var release = octokit.rest.repos.getReleaseByTag({
+              owner: context.repo.owner ,
+              repo: context.repo.repo,
+              tag: process.env.RELEASE,
+            });
+            console.log(release.id);
