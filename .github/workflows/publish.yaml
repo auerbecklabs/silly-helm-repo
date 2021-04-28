@@ -21,5 +21,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { RELEASE } = process.env;
-            console.log(${RELEASE}.split("/")[2]);
+            var rel = process.env.RELEASE;
+            console.log(${rel}.split("/")[2]);
