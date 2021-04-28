@@ -22,9 +22,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.repos.getReleaseByTag({
-              owner: context.repo.owner ,
+              owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: process.env.RELEASE,
+              tag: "v0.0.27",
             })
           
       - run: |
