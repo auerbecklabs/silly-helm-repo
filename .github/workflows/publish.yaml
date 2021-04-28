@@ -21,13 +21,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            var release = await github.repos.getReleaseByTag({
+            await github.repos.getReleaseByTag({
               owner: context.repo.owner ,
               repo: context.repo.repo,
               tag: process.env.RELEASE,
             })
-
-            return release.id
           
       - run: |
           echo ${{ steps.junk.outputs.result }}
