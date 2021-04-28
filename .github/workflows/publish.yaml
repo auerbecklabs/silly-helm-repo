@@ -17,6 +17,7 @@ jobs:
           echo "RELEASE=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - name: Auto-merge
         uses: actions/github-script@v4
+        id: junk
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -28,4 +29,5 @@ jobs:
 
             return release.id
           
-          debug: true
+      - run: |
+          echo ${{ steps.junk.outputs.result }}
