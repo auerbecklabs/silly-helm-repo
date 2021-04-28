@@ -10,7 +10,7 @@ jobs:
   publish-helm-charts:
     env:
       IMAGE_NAME: silly-helm-repo
-      RELEASE: ${{ GITHUB_REF#refs/tags/ }}
+      RELEASE: ${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -22,4 +22,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { RELEASE } = process.env;
-	    console.log(`${RELEASE}.split("/")[2]`);
+            console.log(`${RELEASE}.split("/")[2]`);
