@@ -20,15 +20,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-
-
             release_id = octokit.rest.repos.getReleaseByTag({
             owner: context.repo.owner,
             repo: context.repo.repo,
             tag: ${GITHUB_REF},
             });
-
-            return release_id.id
+            return release_id.id;
 
 #            octokit.rest.repos.uploadReleaseAsset({
 #            owner: context.repo.owner,
