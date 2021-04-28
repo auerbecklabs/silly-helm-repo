@@ -22,4 +22,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             var rel = process.env.RELEASE;
-            console.log(${RELEASE})
+            console.log(${RELEASE});
