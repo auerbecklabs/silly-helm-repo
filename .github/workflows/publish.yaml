@@ -27,3 +27,5 @@ jobs:
             })
 
             return release.id
+          
+          debug: true
