@@ -15,11 +15,11 @@ jobs:
     steps:
       - run: |
           echo ${GITHUB_REF#refs/tags/}
-          echo ${GITHUB_REF}
+          echo "RELEASE=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - name: Auto-merge
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            var rel = process.env.RELEASE;
-            console.log(${RELEASE});
+            const { RELEASE } = env.process.RELEASE
+            console.log(`${RELEASE}`)
