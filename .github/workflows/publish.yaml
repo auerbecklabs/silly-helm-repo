@@ -10,7 +10,6 @@ jobs:
   publish-helm-charts:
     env:
       IMAGE_NAME: silly-helm-repo
-      RELEASE: ${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - run: |
