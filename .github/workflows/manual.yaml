@@ -11,8 +11,8 @@ jobs:
       id: set-result
       with:
         script: |
-          var response ="Hello!";
-          return response
+          var release = process.env.RELEASE;
+          return release
         result-encoding: string
     - name: Get result
       run: echo "${{steps.set-result.outputs.result}}" 
